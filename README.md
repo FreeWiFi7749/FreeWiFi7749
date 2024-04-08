@@ -12,6 +12,7 @@
 <p align="left">
 <a href="https://twitter.com/freewifi_tech" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="freewifi_tech" height="30" width="40" /></a>
 <a href="mailto:wifi@freewifitech.jp"><img src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white"/></a>
+<a href="https://discord.gg/bxEaHhxx" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.gg/bxEaHhxx" height="30" width="40" /></a>
 </p>
 
 # My Skill (Language, other)
