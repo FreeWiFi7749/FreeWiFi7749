@@ -1,5 +1,5 @@
 # Discord.py Bot Developer in Japan👋
-### Freel free to contact me👍
+### Feel free to contact me👍
 
 ![FreeWiFi7749's GitHub stats](https://github-readme-stats.vercel.app/api?username=FreeWiFi7749&show_icons=true&theme=vue-dark)
 
