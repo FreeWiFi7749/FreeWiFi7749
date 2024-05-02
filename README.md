@@ -8,7 +8,7 @@
   (format t "discord.pyを使ってBotを開発しています。有償依頼で3,000円から最大5000円で依頼を受け付けております。~%")
   (format t "現在は、Common Lispを活用して「Lisport」というカスタマイズ可能な日記アプリを開発中です。詳細はこちら：https://github.com/FreeWiFi7749/Lisport~%")
 
-  (format t "~%"))
+  (format t "Lispたのちい~%"))
 
 (print-introduction)
 ```
