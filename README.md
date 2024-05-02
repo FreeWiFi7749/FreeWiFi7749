@@ -1,6 +1,18 @@
 # Discord.py Bot Developer in Japan👋
 ### Feel free to contact me👍
 
+```lisp
+(defun print-introduction ()
+  (format t "こんにちは、FreeWiFitechです。~%")
+
+  (format t "discord.pyを使ってBotを開発しています。有償依頼で3,000円から最大5000円で依頼を受け付けております。~%")
+  (format t "現在は、Common Lispを活用して「Lisport」というカスタマイズ可能な日記アプリを開発中です。詳細はこちら：https://github.com/FreeWiFi7749/Lisport~%")
+
+  (format t "~%"))
+
+(print-introduction)
+```
+
 ![FreeWiFi7749's GitHub stats](https://github-readme-stats.vercel.app/api?username=FreeWiFi7749&show_icons=true&theme=vue-dark)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=FreeWiFi7749&layout=compact&theme=vue-dark)](https://github.com/anuraghazra/github-readme-stats)
