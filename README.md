@@ -6,21 +6,11 @@
   (format t "こんにちは、FreeWiFitechです。~%")
 
   (format t "discord.pyを使ってBotを開発しています。有償依頼で3,000円から最大5000円で依頼を受け付けております。~%")
-  (format t "現在は、Common Lispを活用して「Lisport」というカスタマイズ可能な日記アプリを開発中です。詳細はこちら：https://github.com/FreeWiFi7749/Lisport~%")
-
-  (format t "Lispたのちい~%"))
+  (format t "Lispは学習コスト高すぎて萎えます。ちゃんと下調べしてからやりましょう。~%")
 
 (print-introduction)
 ```
-sbcl↓↓
-
-こんにちは、FreeWiFitechです。
-
-discord.pyを使ってBotを開発しています。有償依頼で3,000円から最大5000円で依頼を受け付けております。
-
-現在は、Common Lispを活用して「Lisport」というカスタマイズ可能な日記アプリを開発中です。詳細はこちら：https://github.com/FreeWiFi7749/Lisport
-
-Lispたのちい
+[![wakatime](https://wakatime.com/badge/user/426e61d3-f6b7-4324-bdf6-c87be0cdc667.svg)](https://wakatime.com/@426e61d3-f6b7-4324-bdf6-c87be0cdc667)
 
 ![FreeWiFi7749's GitHub stats](https://github-readme-stats.vercel.app/api?username=FreeWiFi7749&show_icons=true&theme=vue-dark)
 
