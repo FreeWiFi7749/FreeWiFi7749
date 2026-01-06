@@ -49,7 +49,7 @@
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=FreeWiFi7749&theme=discord&no-frame=true&no-bg=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=FreeWiFi7749)](https://github.com/ryo-ma/github-profile-trophy)
 
 ![Achievements](https://raw.githubusercontent.com/FreeWiFi7749/FreeWiFi7749/main/metrics-achievements.svg)
 
