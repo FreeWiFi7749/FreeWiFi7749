@@ -29,9 +29,7 @@
 
 <div align="center">
 
-![FreeWiFi7749's GitHub stats](https://github-readme-stats.vercel.app/api?username=FreeWiFi7749&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=FreeWiFi7749&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117)](https://github.com/anuraghazra/github-readme-stats)
+![GitHub Stats](https://raw.githubusercontent.com/FreeWiFi7749/FreeWiFi7749/main/metrics-stats.svg)
 
 </div>
 

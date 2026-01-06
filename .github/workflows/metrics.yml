@@ -14,8 +14,19 @@ jobs:
     permissions:
       contents: write
     steps:
+      # GitHub統計（github-readme-statsの代替）
+      - name: 📊 GitHub Stats
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics-stats.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, activity, community, repositories
+          base_indepth: yes
+          config_timezone: Asia/Tokyo
+
       # 3Dアイソメトリックカレンダー + 言語統計
       - name: 🦑 Isocalendar & Languages
+        if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
           filename: metrics-isocalendar.svg
