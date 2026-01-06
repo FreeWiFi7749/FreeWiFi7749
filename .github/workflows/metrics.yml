@@ -30,6 +30,7 @@ jobs:
 
       # 実績バッジ
       - name: 🏆 Achievements
+        if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
           filename: metrics-achievements.svg
@@ -37,10 +38,12 @@ jobs:
           base: ""
           plugin_achievements: yes
           plugin_achievements_display: compact
-          plugin_achievements_threshold: C
+          plugin_achievements_threshold: X
+          plugin_achievements_secrets: yes
 
       # コーディング習慣
       - name: 💡 Habits
+        if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
           filename: metrics-habits.svg
@@ -49,6 +52,6 @@ jobs:
           plugin_habits: yes
           plugin_habits_facts: yes
           plugin_habits_charts: yes
-          plugin_habits_days: 14
-          plugin_habits_from: 200
+          plugin_habits_days: 30
+          plugin_habits_from: 500
           config_timezone: Asia/Tokyo
