@@ -1,5 +1,5 @@
 // プロフィール README 用の SVG を作るスクリプト。
-//   npm ci && node scripts/build.mjs   hero と作品の行を作る。GH_TOKEN があれば year.svg も実データで作る
+//   npm ci && node scripts/build.mjs   hero とロゴを作る。GH_TOKEN があれば year.svg も実データで作る
 //   node scripts/build.mjs --sample    year.svg を見た目確認用のダミーデータで作る（コミットしない）
 //   node scripts/build.mjs --empty     year.svg をデータなしの状態で作る
 //
@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import opentype from "opentype.js";
+import * as simpleIcons from "simple-icons";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const profile = JSON.parse(readFileSync(join(root, "profile.json"), "utf8"));
@@ -206,58 +207,31 @@ ${lights}
 ${text(profile.handle, 72, 214, 21, { fill: DIM, spacing: 1.2 })}
 ${text(profile.name, 70, 292, 72, { weight: 600, spacing: 0.5 })}
 ${text(profile.tagline, 72, 346, 28, { fill: GOLD, spacing: 0.6 })}
-${text(profile.stack.join("　"), 72, 466, 16, { fill: FAINT, spacing: 0.5 })}
 </g>
 </svg>
 `;
 }
 
-// ---------------------------------------------------------------- 作品の行
-function keysArt(accent) {
-  // 12キー。ときどき2つのキーが入れ替わる（自分でキーを組む）
-  const kana = ["あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "小", "わ", "、"];
-  const KW = 44, KH = 31, GAP = 5;
-  const swap = { 1: "a", 2: "b", 6: "c", 9: "d" };
-  let out = "";
-  kana.forEach((ch, i) => {
-    const c = i % 3, r = Math.floor(i / 3);
-    const on = i === 4;
-    const inner = `<rect width="${KW}" height="${KH}" rx="5" fill="${on ? accent : "#1b1c21"}"/>${text(ch, KW / 2, KH / 2 + 6, 16, { fill: on ? "#1a1206" : "#cfcbc2", anchor: "middle", weight: 600 })}`;
-    out += `<g transform="translate(${c * (KW + GAP)} ${r * (KH + GAP)})">${swap[i] ? `<g class="k k${swap[i]}">${inner}</g>` : inner}</g>`;
-  });
-  const css = `
-.k{animation:10s cubic-bezier(.5,0,.2,1) infinite}
-.ka{animation-name:ka}.kb{animation-name:kb}.kc{animation-name:kc}.kd{animation-name:kd}
-@keyframes ka{0%,18%,82%,100%{transform:none}26%,74%{transform:translateX(${KW + GAP}px)}}
-@keyframes kb{0%,18%,82%,100%{transform:none}26%,74%{transform:translateX(-${KW + GAP}px)}}
-@keyframes kc{0%,44%,100%{transform:none}52%,92%{transform:translateY(${KH + GAP}px)}}
-@keyframes kd{0%,44%,100%{transform:none}52%,92%{transform:translateY(-${KH + GAP}px)}}
-@media (prefers-reduced-motion:reduce){.k{animation:none}}`;
-  return { css, defs: "", body: `<g transform="translate(1000 ${(170 - (4 * KH + 3 * GAP)) / 2})">${out}</g>` };
-}
+// ---------------------------------------------------------------- ロゴ
+// 各ブランドの公式ロゴ（Simple Icons、CC0）を公式の色で書き出す。
+// 黒いロゴは暗い画面で見えなくなるので、明るい画面用と暗い画面用の2枚を作る。
+const ICONS = ["Typescript", "Python", "Rust", "Swift", "Qwik", "Tailwindcss", "Cloudflareworkers", "X"];
 
-function sparkArt(seed) {
-  const b = { id: 9, x: 1072, y: 80, R: 62, n: 60, droop: 10, width: 1.3, stops: WABI, delay: 0 };
-  const r = burst(b, rng(seed));
-  return { css: burstCss(LIFE + 1.4), defs: r.defs, body: r.body };
-}
-
-function row(w, index) {
-  const W = 1200, H = 170;
-  const a = w.art === "keys" ? keysArt(w.accent) : sparkArt(index + 3);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(w.title)} — ${esc(w.lines.join(""))}">
-<defs><clipPath id="frame"><rect width="${W}" height="${H}" rx="10"/></clipPath>${a.defs}</defs>
-<style>${a.css}</style>
-<g clip-path="url(#frame)">
-<rect width="${W}" height="${H}" fill="${INK}"/>
-${text(String(index + 1).padStart(2, "0"), 72, 68, 19, { fill: GOLD, spacing: 1 })}
-${text(w.title, 150, 74, 46, { weight: 600, spacing: 0.4 })}
-${text(w.lines.join(""), 151, 112, 20, { fill: DIM, spacing: 0.6 })}
-${text(w.url, 151, 142, 16, { fill: FAINT, spacing: 0.5 })}
-${a.body}
-</g>
-</svg>
-`;
+function icons() {
+  mkdirSync(join(outDir, "icons"), { recursive: true });
+  const svg = (path, fill) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="${fill}" d="${path}"/></svg>\n`;
+  for (const name of ICONS) {
+    const icon = simpleIcons[`si${name}`];
+    if (!icon) throw new Error(`Simple Icons に ${name} がありません`);
+    const file = name.toLowerCase();
+    if (icon.hex === "000000") {
+      writeFileSync(join(outDir, "icons", `${file}-on-light.svg`), svg(icon.path, "#1f2328"));
+      writeFileSync(join(outDir, "icons", `${file}-on-dark.svg`), svg(icon.path, "#f0f6fc"));
+    } else {
+      writeFileSync(join(outDir, "icons", `${file}.svg`), svg(icon.path, `#${icon.hex}`));
+    }
+  }
+  console.log(`assets/icons  ${ICONS.length} logos`);
 }
 
 // ---------------------------------------------------------------- year
@@ -359,7 +333,7 @@ const write = (name, svg) => {
 };
 
 write("hero.svg", hero());
-profile.works.forEach((w, i) => write(`work-${w.id}.svg`, row(w, i)));
+icons();
 
 const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 if (process.argv.includes("--sample")) write("year.svg", year(sampleDays()));
