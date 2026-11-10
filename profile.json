@@ -1,0 +1,28 @@
+{
+  "login": "FreeWiFi7749",
+  "name": "Ayumu Yoshie",
+  "handle": "FreeWiFi",
+  "tagline": "Building what I want.",
+  "site": "hanabi.jp",
+  "stack": ["Swift", "TypeScript", "Rust", "Python", "Kotlin", "Cloudflare Workers"],
+  "works": [
+    {
+      "id": "kumikey",
+      "art": "keys",
+      "title": "KumiKey",
+      "label": "iOS APP",
+      "lines": ["キーの配置を自由に作れる", "日本語フリックキーボード。"],
+      "url": "kumikey.hanabi.jp",
+      "accent": "#F99742"
+    },
+    {
+      "id": "hanabi",
+      "art": "spark",
+      "title": "hanabi.jp",
+      "label": "PORTFOLIO",
+      "lines": ["作ったものは", "ここにまとめています。"],
+      "url": "hanabi.jp",
+      "accent": "#FF7EB6"
+    }
+  ]
+}
