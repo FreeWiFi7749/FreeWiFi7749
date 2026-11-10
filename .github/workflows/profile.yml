@@ -1,0 +1,41 @@
+name: Build profile
+
+on:
+  schedule:
+    - cron: "17 15 * * *" # 毎日 0:17 JST
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "profile.json"
+      - ".github/workflows/profile.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build SVG
+        run: node scripts/build.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit
+        run: |
+          git add assets
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update profile assets"
+          git push
