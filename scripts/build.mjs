@@ -215,7 +215,7 @@ ${text(profile.tagline, 72, 346, 28, { fill: GOLD, spacing: 0.6 })}
 // ---------------------------------------------------------------- ロゴ
 // 各ブランドの公式ロゴ（Simple Icons、CC0）を公式の色で書き出す。
 // 黒いロゴは暗い画面で見えなくなるので、明るい画面用と暗い画面用の2枚を作る。
-const ICONS = ["Typescript", "Python", "Rust", "Swift", "Qwik", "Tailwindcss", "Cloudflareworkers", "X"];
+const ICONS = ["Typescript", "Python", "Qwik", "Tailwindcss", "Cloudflareworkers", "X"];
 
 function icons() {
   mkdirSync(join(outDir, "icons"), { recursive: true });

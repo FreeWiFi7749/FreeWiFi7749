@@ -50,8 +50,6 @@ Web サービスやツールを、作るところから公開して動かし続�
   </tr>
 </table>
 
-ほかに [ferricord](https://github.com/FreeWiFi7749/ferricord) も作りました。Rust と Python を組み合わせた、速さ重視の Discord API ラッパーです。
-
 ## 使っているもの
 
 **よく書く言語**
@@ -59,12 +57,6 @@ Web サービスやツールを、作るところから公開して動かし続�
 <img src="assets/icons/typescript.svg" width="16" height="16" alt="" /> TypeScript
 &nbsp;&nbsp;
 <img src="assets/icons/python.svg" width="16" height="16" alt="" /> Python
-
-**触ったことがある言語**
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/icons/rust-on-dark.svg" /><img src="assets/icons/rust-on-light.svg" width="16" height="16" alt="" /></picture> Rust
-&nbsp;&nbsp;
-<img src="assets/icons/swift.svg" width="16" height="16" alt="" /> Swift
 
 **よく使うもの**
 
